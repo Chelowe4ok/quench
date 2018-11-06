@@ -1,0 +1,53 @@
+@import './../../theme/variables';
+@import './../../theme/mixins';
+
+marker-details {
+
+}
+
+.card {
+  .card-header {
+    height: 100px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .card-content, .card-footer {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .card-content {
+    .title h3 {
+      @include truncate();
+    }
+
+    > * {
+      margin: 0;
+    }
+  }
+
+  .card-footer {
+    padding-bottom: 0;
+
+
+    .directions-control {
+      color: #4285f4;
+    }
+
+    .facebook-control {
+      svg {
+        fill: #5d7dbe;
+      }
+    }
+
+    .icon {
+      margin-right: 5px;
+      padding: 0;
+      font-size: 36px;
+      height: 36px;
+      width: 36px;
+    }
+  }
+}

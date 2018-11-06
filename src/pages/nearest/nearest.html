@@ -1,0 +1,47 @@
+
+<ion-header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="fill-remaining-space">
+        <button mat-icon-button menuToggle>
+          <mat-icon>menu</mat-icon>
+        </button>
+      </span>
+      <span class="fill-remaining-space">Nearest</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="errors">
+    <p *ngFor="let error of errors"
+       class="error">{{error?.message}}</p>
+  </div>
+
+  <mat-list>
+    <mat-list-item *ngFor="let event of events"
+                   (click)="detail(event)">
+      <div class="event-status" mat-list-icon>
+        {{getDistance(event) || '-'}}
+      </div>
+      <h4 mat-line>{{event.venue_name}}</h4>
+      <p mat-line> {{getOfferOfTheDay(event)}} </p>
+      <div class="flex flex-column" *ngIf="getEventToday(event).is_opened; else closedTemplate">
+        <span class="trunscate">{{getEventToday(event).start_time}}</span>
+        <span class="trunscate">{{getEventToday(event).end_time}}</span>
+      </div>
+      <ng-template #closedTemplate>
+        <div class="flex flex-column">
+          <span class="trunscate">Today is closed</span>
+        </div>
+      </ng-template>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+
+</ion-content>

@@ -1,45 +1,92 @@
-// Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/theming/
 
-// Font path is used to include ionicons,
-// roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
-
-// The app direction is used to include
-// rtl styles in your app. For more info, please see:
-// http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
 
 @import "ionic.globals";
 
 
 // Shared Variables
 // --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass variables found in Ionic's source scss files.
-// To view all the possible Ionic variables, see:
-// http://ionicframework.com/docs/theming/overriding-ionic-variables/
-
 
 
 
 // Named Color Variables
 // --------------------------------------------------
-// Named colors makes it easy to reuse colors on various components.
-// It's highly recommended to change the default colors
-// to match your app's branding. Ionic uses a Sass map of
-// colors so you can add, rename and remove colors as needed.
-// The "primary" color is the only required color in the map.
 
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
-  light:      #f4f4f4,
+  light:      #ffffff,
   dark:       #222
 );
+
+$md-primarypalette: (
+     50 : #f0e7f2,
+    100 : #dac3de,
+    200 : #c19cc9,
+    300 : #a874b3,
+    400 : #9556a2,
+    500 : #823892,
+    600 : #7a328a,
+    700 : #6f2b7f,
+    800 : #652475,
+    900 : #521763,
+    A100 : #e89dff,
+    A200 : #db6aff,
+    A400 : #cf37ff,
+    A700 : #c91eff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$md-defaultpalette: (
+    50 : #f0e7f2,
+    100 : #dac3de,
+    200 : #c19cc9,
+    300 : #a874b3,
+    400 : #9556a2,
+    500 : #823892,
+    600 : #7a328a,
+    700 : #6f2b7f,
+    800 : #652475,
+    900 : #521763,
+    A100 : #e89dff,
+    A200 : #db6aff,
+    A400 : #cf37ff,
+    A700 : #c91eff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
 
 
 // App iOS Variables

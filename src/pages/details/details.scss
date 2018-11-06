@@ -1,0 +1,91 @@
+@import './../../theme/variables';
+@import './../../theme/mixins';
+
+page-details {
+  .mat-card {
+    background: map-get($colors, light);
+    color: map-get($colors, dark);
+
+    .mat-card-title {
+      font-weight: bold;
+    }
+
+    .mat-card-subtitle {
+      color: map-get($colors, dark);
+    }
+  }
+
+  .mat-card-image {
+    margin: 0;
+  }
+
+  .details-card {
+    padding: 0;
+    min-height: 100%;
+  }
+
+  .mat-card-header,
+  .mat-card-content,
+  .mat-card-actions {
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  .details-header-image {
+    background-size: cover;
+  }
+
+  .attributes {
+    .attribute-header {
+      text-align: center;
+    }
+
+    .mat-list .mat-list-item {
+      color: map-get($colors, dark);
+      height: 48px;
+    }
+
+    .schedule {
+      .mat-list .mat-list-item {
+        background-color: map-get($md-primarypalette, 300);
+      }
+
+      .day {
+        &.opened {
+          //background-color: map-get($colors, primary);
+        }
+      }
+    }
+  }
+
+  .actions {
+    .directions-control {
+      color: #4285f4;
+    }
+
+    .uber-control {
+      svg {
+        fill: #000000;
+      }
+    }
+
+    .facebook-control {
+      svg {
+        fill: #5d7dbe;
+      }
+    }
+
+    .icon {
+      margin-right: 5px;
+      padding: 0;
+      font-size: 36px;
+      height: 36px;
+      width: 36px;
+    }
+  }
+
+  .mat-list .mat-list-item.event-content .mat-list-item-content {
+    flex-direction: column;
+    align-items: flex-start;
+    color: map-get($colors, dark);
+  }
+}

@@ -1,0 +1,60 @@
+
+<ion-header>
+
+</ion-header>
+
+
+<ion-content>
+
+  <!-- Statuses List -->
+  <div class="map-header">
+    <div class="statuses">
+      <div class="status">
+        <div class="state-label open_in_the_next_hour"></div>
+        <div class="name">Venue will be open within the next two hours</div>
+      </div>
+
+      <div *ngFor="let status of statuses"
+           class="status">
+        <div class="state-label" [ngClass]="status.classes"></div>
+        <div class="name">{{status.name}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar toogle button -->
+  <button class="menu-toggle" mat-icon-button menuToggle>
+    <mat-icon class="icon">menu</mat-icon>
+  </button>
+
+  <mat-icon class="icon data-status" [ngStyle]="{'color': dataStatus?.color}">{{dataStatus?.icon}}</mat-icon>
+
+  <div #map id="map_canvas">
+      <div class="input-field">
+        <ion-input class="form-control"  [(ngModel)]="search_address" type="text" placeholder="Search nearby location..."></ion-input>
+        <button class="btn-search" type="button" (click)="findGeolocation($event)">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+
+    <div class="controls controls-bottom">
+
+      <div class="control-row flex flex-row justify-content-end">
+        <button mat-fab
+                color="primary"
+                class="current-location-control"
+                (click)="getUserLocation()">
+          <mat-icon>my_location</mat-icon>
+        </button>           
+      </div>
+
+      <!-- Event details
+      <marker-details #markerDetails
+                      [@bottomSnapAnimation]="markerDetailEvent ? 'active' : 'inactive'"
+                      [event]="markerDetailEvent"
+                      [controls]="mapConfiguration.controls"
+                      [location]="userLocation"></marker-details>      -->
+    </div>
+
+  </div>
+</ion-content>

@@ -1,16 +1,120 @@
-// http://ionicframework.com/docs/theming/
+
+@import './../theme/variables';
+@import './../theme/mixins';
+
+@import './../../node_modules/@angular/material/theming';
+@include mat-core();
 
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+$palette-primary: mat-palette($md-primarypalette, A400, A700, A400);
+$palette-default: mat-palette($md-defaultpalette);
+
+$holi-theme: mat-light-theme($palette-primary, $palette-default);
+$holi-theme: mat-dark-theme($palette-primary, $palette-default);
+
+
+@include angular-material-theme($holi-theme);
+
+.error {
+  color: map-get($colors, danger);
+}
+
+.flex {
+  @include flex();
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.m-left-auto {
+  margin-left: auto;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.trunscate {
+  @include truncate();
+}
+
+.mat-icon {
+  font-family: 'Material Icons' !important;
+}
+
+.main-btn {
+  position: fixed;
+  bottom: 65px;
+  right: 20px;
+}
+
+button.menu-toggle {
+  position: absolute;
+  z-index: 99;
+  top: 40px;
+
+  .icon {
+    font-size: 2.5em;
+  }
+}
+
+.square-box {
+  @include flex();
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background: map-get($colors, primary)
+}
+
+
+/* PAGES
+ //////////////////////////////
+*/
+
+marker-details {
+  //width: 100vw;
+  //padding: 0 10px 10px 10px;
+
+  .content {
+    background: #ffffff;
+    height: 100%;
+    min-height: 100px;
+    //padding: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+  }
+}
+
+page-map {
+
+  .pgm-html-info-frame, .pgm-html-info-content-frame {
+    min-width: 250px !important;
+    max-width: 320px !important;
+  }
+
+  .pgm-html-info-content-box {
+    padding: 0 !important;
+  }
+}

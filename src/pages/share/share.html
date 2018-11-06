@@ -1,0 +1,25 @@
+<ion-header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="fill-remaining-space">
+        <button mat-icon-button menuToggle>
+          <mat-icon>menu</mat-icon>
+        </button>
+      </span>
+      <span class="fill-remaining-space">Share</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="content flex flex-column justify-content-center align-items-center">
+    <img src="/assets/QR.png" title="Quench App" alt="Quench App" />
+
+    <button mat-raised-button
+            color="primary"
+            (click)="scan()">Scan</button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\pages\\details",
+    "\\src\\pages\\map",
+    "\\src\\pages\\menu",
+    "\\src\\pages\\nearest",
+    "\\src\\pages\\share",
+    "\\src\\providers\\api",
+    "\\src\\providers\\settings",
+    "\\src\\shared\\material"
+  ],
+  "SelectedNode": "\\src\\assets",
+  "PreviewInSolutionExplorer": false
+}

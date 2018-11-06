@@ -1,0 +1,90 @@
+<ion-header>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span class="fill-remaining-space">
+          <button mat-icon-button navPop>
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+        </span>
+        <span class="fill-remaining-space">{{event?.name}}</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <mat-card class="details-card">
+    <mat-card-header>
+      <div mat-card-avatar class="details-header-image"
+           [ngStyle]="{'background-image': getVenueImageBg()}"></div>
+      <mat-card-title>{{event?.venue_name}}</mat-card-title>
+      <mat-card-subtitle>{{getOfferToday()}}</mat-card-subtitle>
+      <div class="m-left-auto nowrap flex align-items-center">{{leftDuration()}}</div>
+    </mat-card-header>
+    <img mat-card-image src="{{getOfferImage()}}" alt="{{getOfferToday()}}">
+    <mat-list>
+      <mat-list-item class="actions">
+        <a href="{{'https://www.facebook.com/' + event.page_fb_id}}">
+          <mat-icon class="facebook-control icon" svgIcon="facebook"></mat-icon>
+        </a>
+        <mat-icon *ngIf="UBER"
+                  (click)="launchUber()"
+                  class="icon uber-control"
+                  svgIcon="uber"></mat-icon>
+
+        <mat-icon *ngIf="GOOGLE_MAPS_DIRECTION"
+                  class="icon directions-control"
+                  (click)="launchDirection()">directions</mat-icon>
+      </mat-list-item>
+      <mat-list-item class="event-content">
+        <div>
+          {{event.location?.street ? event.location?.street + ', ' : ''}}
+          {{event.location?.city ? event.location?.city + ', ' : ''}}
+          {{event.location?.country ? event.location?.country + ', ' : ''}}
+          {{event.location?.city || ''}}
+        </div>
+        <div class="nowrap">
+          {{event.start_period | date}}&nbsp;&mdash;&nbsp;{{event.end_period | date}}
+        </div>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-card-content>
+      <div class="attributes">
+
+      
+
+        <!-- Schedule -->
+        <div class="attribute schedule">
+          <h5 class="attribute-header">Week</h5>
+          <div class="attribute-content">
+
+            <mat-list>
+              <mat-list-item *ngFor="let day of days" class="day" [ngClass]="{'opened': day.is_opened}">
+                <div mat-list-icon  class="details-header-image"
+                [ngStyle]="{'background-image': getVenueDayImageBg(day.day_name)}"></div>
+                <h4 mat-line>{{day.day_name}}</h4>
+                <p mat-line>{{event.hours_type === 'SELECTED_HOURS' ? day.is_opened ? day.name : '' : event.name}}</p>
+                <div *ngIf="day.is_opened; else notOpenedTemplate"
+                     class="nowrap">
+                  {{day.start_time}}&nbsp;&mdash;&nbsp;{{day.end_time}}
+                </div>
+                <ng-template #notOpenedTemplate>
+                  <p>No offers available</p>
+                </ng-template>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+
+
+
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+ 
+    </mat-card-actions>
+  </mat-card>
+
+</ion-content>

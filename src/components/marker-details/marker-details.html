@@ -1,0 +1,48 @@
+
+<div *ngIf="event" class="content card row">
+
+  <div class="card-header" [ngStyle]="{'background-image': imageUrl}" (click)="detail()">
+   
+  </div>
+
+  <div class="card-content">
+      <div class="title flex align-items-center justify-content-between">
+        <h3>{{event.venue_name}}</h3>
+        <div class="time flex flex-column">
+          <strong class="nowrap">{{event.days[currentDay].start_time}}</strong>
+          <strong class="nowrap">{{event.days[currentDay].end_time}}</strong>
+        </div>
+      </div>
+      <p>{{event.hours_type === 'SELECTED_HOURS' && event.days[currentDay].name ? event.days[currentDay].name : event.name}}</p>
+      <p>
+        {{event.location?.street ? event.location?.street + ', ' : ''}}
+        {{event.location?.city ? event.location?.city + ', ' : ''}}
+        {{event.location?.country ? event.location?.country + ', ' : ''}}
+        {{event.location?.city || ''}}
+      </p>
+  </div>
+
+  <div class="card-footer flex justify-content-between">
+       <div class="card-footer-left flex flex-row align-items-center" >
+         <a href="{{'https://www.facebook.com/' + event.page_fb_id}}">
+           <mat-icon class="facebook-control icon" svgIcon="facebook"></mat-icon>
+         </a>
+           <mat-icon
+                 *ngIf="controlIsAvailable('UBER')"
+                 (click)="launchUber()"
+                class="icon uber-control"
+                 svgIcon="uber"></mat-icon>
+
+           <mat-icon
+                 *ngIf="controlIsAvailable('GOOGLE_MAPS_DIRECTION')"
+                class="icon directions-control"
+                 (click)="launchDirection()">directions</mat-icon>
+       </div>
+
+    <div class="card-footer-right flex flex-column">
+      <span>{{displayedDistance()}}</span>
+
+      <div class="square-box" [ngStyle]="{'background': getLocationStatus(event).color}">{{getLeftDuration(event)}} min</div>
+    </div>                   
+  </div>
+</div>

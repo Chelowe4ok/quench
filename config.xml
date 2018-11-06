@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>quench-mobile</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="fyi.quench.mobile" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Quench</name>
+    <description>An app to share Happy Hours.</description>
+    <author email="support@quench.fyi" href="https://quench.fyi">Quench Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -19,6 +19,7 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="loadUrlTimeoutValue" value="700000" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -82,4 +83,20 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-googlemaps" spec="2.4.6">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBBYSYi1fVay9lDh0Y9zPM6eaPxsMlWivU" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyBBYSYi1fVay9lDh0Y9zPM6eaPxsMlWivU" />
+        <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+    </plugin>
+    <plugin name="cordova-sqlite-storage" spec="2.5.0" />
+    <allow-navigation href="http://192.168.0.98:8100" sessionid="250c51df" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="4.2.2">
+        <variable name="OKHTTP_VERSION" value="3.+" />
+    </plugin>
+    <plugin name="phonegap-plugin-barcodescanner" spec="8.0.0">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+    </plugin>
+    <engine name="android" spec="7.1.1" />
+    <engine name="browser" spec="5.0.4" />
 </widget>
